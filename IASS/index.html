@@ -1,6 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>
+.mySlides {display:none}
+.w3-left, .w3-right, .w3-badge {cursor:pointer}
+.w3-badge {height:13px;width:13px;padding:0}
+.circler_image {
+  border-radius: 50%;
+     /*position: relative; */
+}
+.circler_image:hover {
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+
+}
+.circler_image:hover .sub {
+  display: block;
+
+}
+ {
+    /*position: absolute;*/
+    /*margin-bottom: 50%;*/
+    /*left: 50%;*/
+    top:50%;
+    /*transform: translate(-50%, -50%);*/
+}
+
+
+.sub { 
+   position: absolute; 
+   top: 200px; 
+   left: 0; 
+   width: 100%; 
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,.signupbtn {float:left;width:50%}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    color: #000;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+</style>
+
   <meta charset="utf-8">
   <title>Regna Bootstrap Template</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -23,7 +143,11 @@
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+  <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <!-- =======================================================
     Theme Name: Regna
     Theme URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
@@ -41,7 +165,7 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="#hero"><img src="img/logo.png" alt="" title="" /></img></a>
+        <a href="#hero"><img style="margin-top: -10px; width: 100px; height: 50px;" src="img/logo3.png" alt="" title="" /></img></a>
         <!-- Uncomment below if you prefer to use a text logo -->
         <!--<h1><a href="#hero">Regna</a></h1>-->
       </div>
@@ -50,10 +174,7 @@
         <ul class="nav-menu">
           <li class="menu-active"><a href="#hero">Home</a></li>
           <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="menu-has-children"><a href="">Drop Down</a>
+              <li class="menu-has-children" ><a href="#Products">Products</a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
               <li class="menu-has-children"><a href="#">Drop Down 2</a>
@@ -69,9 +190,53 @@
               <li><a href="#">Drop Down 4</a></li>
               <li><a href="#">Drop Down 5</a></li>
             </ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Team</a></li>
+      
           </li>
           <li><a href="#contact">Contact Us</a></li>
-        </ul>
+
+      <!-- <li style="float: right;"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
+      
+            <li ><a style="" href="#"><i style="" class="material-icons w3-large">person</i> Sign Up</a></li>
+
+      <li ><a  onclick="document.getElementById('id01').style.display='block'" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="container">
+      <label><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <label><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      <input type="checkbox" checked="checked"> Remember me
+      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+              </ul>
+
       </nav><!-- #nav-menu-container -->
     </div>
   </header><!-- #header -->
@@ -80,11 +245,88 @@
     Hero Section
   ============================-->
   <section id="hero">
-    <div class="hero-container">
-      <h1>Welcome to Regna</h1>
+    <!-- <div class="hero-container"> -->
+ <!--       <div class="item">
+        <img src="../img/hero-bg.jpp" alt="Chicago" style="width:100%;">
+        <div class="carousel-caption">
+          <h3>Chicago</h3>
+          <p>Thank you, Chicago!</p>
+        </div>
+      </div>
+    
+      <div class="item">
+        <img src="ny.jpg" alt="New York" style="width:100%;">
+        <div class="carousel-caption">
+          <h3>New York</h3>
+          <p>We love the Big Apple!</p>
+        </div>
+      </div> -->
+      <!-- <h2 class="w3-center"></h2> -->
+
+<!-- <div class="w3-content w3-section"> -->
+
+<div class="mySlides" style="text-align: center;" >  
+<img class="myslides_image" src="img/plc.jpg" >
+
+</div>
+<div class="mySlides">  <img class="myslides_image" src="img/android2.jpg" >
+</div>
+<div class="mySlides">  <img class="myslides_image" src="img/ios4.jpg" >
+</div>
+<!-- <div class="mySlides">  <img class="myslides_image" src="img/team-4.jpg" >
+</div> -->
+<div   style="margin-top: -70px; margin-left: 50%; padding-bottom: 3%;">
+    <span onclick="currentDiv(1)" class="w3-badge demo w3-border w3-transparent w3-hover-white"></span>
+    <span onclick="currentDiv(2)" class="w3-badge demo w3-border w3-transparent w3-hover-white"></span>
+    <span onclick="currentDiv(3)" class="w3-badge demo w3-border w3-transparent w3-hover-white"></span>
+  </div>
+  <!-- <img class="mySlides" src="img_chicago.jpg" style="width:100%"> -->
+<!-- </div> -->
+
+<script>
+var myIndex = 0;
+carousel();
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " w3-white";
+}
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+     var dots = document.getElementsByClassName("demo");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+  dots[myIndex-1].className += " w3-white";
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+ <!--      <h1>Welcome to Regna</h1>
       <h2>We are team of talanted designers making websites with Bootstrap</h2>
-      <a href="#about" class="btn-get-started">Get Started</a>
-    </div>
+      <a href="#about" class="btn-get-started">Get Started</a> -->
+    <!-- </div> -->
   </section><!-- #hero -->
 
   <main id="main">
@@ -131,10 +373,115 @@
     <!--==========================
       Facts Section
     ============================-->
-    <section id="facts">
+<section id="Products" style=" padding-top:  50px; background-color: #f7f7f7; ">
       <div class="container wow fadeIn">
         <div class="section-header">
-          <h3 class="section-title">Facts</h3>
+          <h3 class="section-title">PRODUCTS</h3>
+<!--           <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+ -->        </div>
+        <div class="row" style="padding-top:  50px;">
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+        
+            <div class="box" style="text-align: center;">
+              <a href="">
+             <img class="circler_image" src="img/team-3.jpg" alt="Avatar" style="width:80%; "><br><br></a>
+              <h1 class="description" style="color: #000066; font-weight: bold; font-size: 20px;" >iCART</h1>
+              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+
+            </div>
+
+          </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="box">
+             <a href="">
+             <img class="circler_image" src="img/team-3.jpg" alt="Avatar" style="width:80%;  "><br><br></a>
+            <h1 class="description" style="color: #000066; font-weight: bold; font-size: 20px;" >iERP</h1>
+            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+            </div>
+          </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="box">
+            <a href="">
+             <img class="circler_image" src="img/team-3.jpg" alt="Avatar" style="width:80%;  "><br><br></a>
+              <h1 class="description" style="color: #000066; font-weight: bold; font-size: 20px;" >iHOST</h1>
+              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+            </div>
+          </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="box">
+             <a href="">
+             <img class="circler_image" src="img/team-3.jpg" alt="Avatar" style="width:80%; "><br><br></a>
+              <h1 class="description" style="color: #000066; font-weight: bold; font-size: 20px;" >IOT</h1>
+              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+            </div>
+          </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="box">
+             <a href="">
+             <img class="circler_image" src="img/team-3.jpg" alt="Avatar" style="width:80%;  "><br><br></a>
+             <h1 class="description" style="color: #000066; font-weight: bold; font-size: 20px;" >iMOB (Android , IOS)</h1>
+              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+            </div>
+          </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="box">
+            <a href="">
+             <img class="circler_image" src="img/team-3.jpg" alt="Avatar" style="width:80%;  "><br><br></a>
+             <h1 class="description" style="color: #000066; font-weight: bold; font-size: 20px;" >iSOURCE</h1>
+              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+            </div>
+          </div>
+          <!-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+            <div class="box">
+              <div class="icon"><a href=""><i class="fa fa-bar-chart"></i></a></div>
+              <h4 class="title"><a href="">Dolor Sitema</a></h4>
+              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+            <div class="box">
+              <div class="icon"><a href=""><i class="fa fa-paper-plane"></i></a></div>
+              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="box">
+              <div class="icon"><a href=""><i class="fa fa-photo"></i></a></div>
+              <h4 class="title"><a href="">Magni Dolores</a></h4>
+              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+            <div class="box">
+              <div class="icon"><a href=""><i class="fa fa-road"></i></a></div>
+              <h4 class="title"><a href="">Nemo Enim</a></h4>
+              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+            <div class="box">
+              <div class="icon"><a href=""><i class="fa fa-shopping-bag"></i></a></div>
+              <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+              <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+            </div>
+          </div> -->
+        </div>
+
+      </div>
+    </section>
+<!--     <section id="Products" style=" padding-top:  50px;">
+      <div class="container wow fadeIn">
+        <div class="section-header">
+          <h3 class="section-title">Products</h3>
+
+          <img class="circler_image" src="img/team-3.jpg" alt="Avatar" style="width:300px; padding: 20px; margin-left: 10%;" >
+<img  class="circler_image" src="img/team-3.jpg" alt="Avatar" style="width:300px; padding: 20px;">
+<img class="circler_image" src="img/team-3.jpg" alt="Avatar" style="width:300px; padding: 20px;">
+<img class="circler_image" src="img/team-3.jpg" alt="Avatar" style="width:300px; padding: 20px;margin-left: 10%;" >
+<img class="circler_image" src="img/team-3.jpg" alt="Avatar" style="width:300px; padding: 20px;">
+<img class="circler_image" src="img/team-3.jpg" alt="Avatar" style="width:300px; padding: 20px;">
           <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
         </div>
         <div class="row counters">
@@ -162,7 +509,7 @@
   			</div>
 
       </div>
-    </section><!-- #facts -->
+    </section><!-- #facts --> 
 
     <!--==========================
       Services Section
